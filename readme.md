@@ -15,6 +15,7 @@ This project demonstrates how to use Confluent Cloud with KafkaJS to build a pro
 2. Confluent Cloud Account:
 
    - Set up a Kafka cluster in Confluent Cloud.
+   - https://www.confluent.io/get-started/
    - Create an API key and secret for authentication.
    - Create a topic (e.g., topic_emi_2).
 
