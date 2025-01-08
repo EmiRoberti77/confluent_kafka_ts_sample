@@ -1,4 +1,4 @@
-#Kafka Confluent Cloud Producer and Consumer in Node.js / typescript
+# Kafka Confluent Cloud Producer and Consumer in Node.js / typescript
 
 This project demonstrates how to use Confluent Cloud with KafkaJS to build a producer and consumer in Node.js. It connects to a Confluent Cloud Kafka cluster, sends messages to a topic, and consumes messages from the same topic.
 
