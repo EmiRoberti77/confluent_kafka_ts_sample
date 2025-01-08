@@ -1,38 +1,13 @@
 import { KafkaJS } from "@confluentinc/kafka-javascript";
-import { z } from "zod";
 import dotenv from "dotenv";
-import { TopicMessage } from "./types";
+import { EnvConfig, envSchema, KafkaConfig, TopicMessage } from "./types";
 dotenv.config();
-
-const envSchema = z.object({
-  "bootstrap.servers": z.string(),
-  "sasl.username": z.string(),
-  "sasl.password": z.string(),
-  "sasl.mechanism": z.string(),
-  //"security.protocol": z.string(),
-  "session.timeout.ms": z.number(),
-  "client.id": z.string(),
-});
-
-type EnvConfig = z.infer<typeof envSchema>;
-
-type KafkaConfig = EnvConfig & {
-  "group.id": string;
-  "auto.offset.reset": string;
-  "security.protocol":
-    | "sasl_ssl"
-    | "plaintext"
-    | "ssl"
-    | "sasl_plaintext"
-    | undefined;
-};
 
 const config: EnvConfig = {
   "bootstrap.servers": process.env.bootstrap_servers!,
   "sasl.username": process.env.sasl_username!,
   "sasl.password": process.env.sasl_password!,
   "sasl.mechanism": process.env.sasl_mechanism!,
-  //"security.protocol": process.env.security_protocol!,
   "session.timeout.ms": parseInt(process.env.session_timeout_ms!),
   "client.id": process.env.client_id!,
 };
